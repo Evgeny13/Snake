@@ -10,23 +10,14 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point();
-            p1.x = 1;
-            p1.y = 3;
-            p1.sym = '*';
+            Point p1 = new Point(1, 3, '*'); // конструктор по созданию объекта
             p1.Draw();
-            Point p2 = new Point();
-            p2.x = 4;
-            p2.y = 5;
-            p2.sym = '#';
+
+            Point p2 = new Point(4, 5, '#');            
             p2.Draw();
 
             Console.ReadLine();
         }
-        //static void Draw(int x, int y, char sym)
-        //{
-        //    Console.SetCursorPosition(x, y); // выводит точку с координатами
-        //    Console.Write(sym);
-        //}
     }
 }
+//инкапсуляция - свойтсво системы, позволяющее объеденить все данные и методы, работающие с ними в классе и скрыть все детали реализации
