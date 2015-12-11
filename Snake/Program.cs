@@ -13,20 +13,20 @@ namespace Snake
             Point p1 = new Point();
             p1.x = 1;
             p1.y = 3;
-            p1.sum = '*';
+            p1.sym = '*';
             p1.Draw();
             Point p2 = new Point();
             p2.x = 4;
             p2.y = 5;
-            p2.sum = '#';
+            p2.sym = '#';
             p2.Draw();
 
             Console.ReadLine();
         }
-        //static void Draw(int x, int y, char sum)
+        //static void Draw(int x, int y, char sym)
         //{
         //    Console.SetCursorPosition(x, y); // выводит точку с координатами
-        //    Console.Write(sum);
+        //    Console.Write(sym);
         //}
     }
 }
