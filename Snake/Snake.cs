@@ -30,7 +30,7 @@ namespace Snake
             tail.Clear();
             head.Draw();
         }
-        public Point GetNextPoint()
+        public Point GetNextPoint() // в какой точке окажется змейка в следующий момоент
         {
             Point head = pList.Last(); // позиция головы змейки до перемещения
             Point nextPoint = new Point(head); //
@@ -48,7 +48,19 @@ namespace Snake
                 direction = Direction.DOWN;
             else if (key == ConsoleKey.UpArrow)
                 direction = Direction.UP;
+        }
 
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+                return false;
         }
 
     }
