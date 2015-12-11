@@ -15,21 +15,18 @@ namespace Snake
         public Point()
         {
         }
-
         public Point(int _x, int _y, char _sym)
         {
             x = _x;
             y = _y;
             sym = _sym;
         }
-
         public Point(Point p) // конструктор точки
         {
             x = p.x;
             y = p.y;
             sym = p.sym;
         }
-
         public void Move(int offset, Direction direction) // сдвигает точку на расстояние offset по направлению direction
         {
             if (direction == Direction.RIGHT)
@@ -50,18 +47,12 @@ namespace Snake
             }
         }
 
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y); // выводит точку с координатами
             Console.Write(sym); // отображает символ
         }
-
-        public void Clear()
-        {
-            sym = ' ';
-            Draw();
-        }
-
         public override string ToString()
         {
             return x + "," + y + "," + sym;
