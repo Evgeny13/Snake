@@ -23,23 +23,15 @@ namespace Snake
             righrLine.Drow();
 
 
-            // отрисовка точек
-            Point p1 = new Point(1, 3, '*'); // конструктор по созданию объекта
-            p1.Draw();
+            // отрисовка точек            
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT); //p хвост длина 4 направление вправо
+            snake.Drow();
 
-            Point p2 = new Point(4, 5, '#');            
-            p2.Draw();
-
-            // препятствия
-            HorizontalLine hline = new HorizontalLine(5, 10, 8, '+');
-            hline.Drow();
-
-            WertikalLine wline = new WertikalLine(8, 15, 10, '+');
-            wline.Drow();
-
-
+            
             Console.ReadLine();
         }
     }
 }
 //инкапсуляция - свойтсво системы, позволяющее объеденить все данные и методы, работающие с ними в классе и скрыть все детали реализации
+// абстрагированеие - способ выделить набор значимых характеристик объекта, исключая из рассмотрения незначимые
