@@ -28,7 +28,7 @@ namespace Snake
             pList.Add(head); // добавляет элемент в направлении движения
 
             tail.Clear();
-            head.Draw();
+            head.Drow();
         }
         public Point GetNextPoint() // в какой точке окажется змейка в следующий момоент
         {
@@ -36,6 +36,17 @@ namespace Snake
             Point nextPoint = new Point(head); //
             nextPoint.Move(1, direction); //сдвигаем точку в направление direction на расстояние 1
             return nextPoint;
+        }
+
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 1; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
         }
 
         public void HandleKey(ConsoleKey key)

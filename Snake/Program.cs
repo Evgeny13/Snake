@@ -11,53 +11,30 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            /*  Console.SetBufferSize(80, 25);
+            Console.SetBufferSize(80, 25);
 
-              //отрисовка рамочки
-              HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
-              HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
-              WertikalLine leftLine = new WertikalLine(0, 24, 0, '+');            
-              WertikalLine righrLine = new WertikalLine(0, 24, 78, '+');
-              upLine.Drow();
-              downLine.Drow();
-              leftLine.Drow();
-              righrLine.Drow();
+            Walls walls = new Walls(80, 25);
+            walls.Drow();
 
-
-              // отрисовка точек            
-              Point p = new Point(4, 5, '*');
-              Snake snake = new Snake(p, 4, Direction.RIGHT); //p хвост длина 4 направление вправо
-              snake.Drow();
-
-              FoodCreator foodCreator = new FoodCreator(80, 25, '$'); // класс чтобы появилась еда
-              Point food = foodCreator.CreatorFood();
-              food.Draw();*/
-            WertikalLine v1 = new WertikalLine(0, 10, 5, '%');
-            Drow(v1);
-
+            // отрисовка точек            
             Point p = new Point(4, 5, '*');
-            Figure fSnake = new Snake(p, 4, Direction.RIGHT);
-            Drow(fSnake);
-            Snake snake = (Snake)fSnake;
+            Snake snake = new Snake(p, 4, Direction.RIGHT); //p хвост длина 4 направление вправо
+            snake.Drow();
 
-            HorizontalLine h1 = new HorizontalLine(0, 5, 6, '&');
-
-            List<Figure> figures = new List<Figure>();
-            figures.Add(fSnake);
-            figures.Add(v1);
-            figures.Add(h1);
-
-            foreach (var f in figures)
-            {
-                f.Drow();
-            }
+            FoodCreator foodCreator = new FoodCreator(80, 25, '$'); // класс чтобы появилась еда
+            Point food = foodCreator.CreatorFood();
+            food.Drow();
 
             while (true)
             {
-                if (snake.Eat(food))
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+                    if (snake.Eat(food))
                 {
                     food = foodCreator.CreatorFood();
-                    food.Draw();
+                    food.Drow();
                 }
                 else
                 {
