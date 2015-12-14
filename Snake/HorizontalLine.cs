@@ -17,5 +17,15 @@ namespace Snake
                 pList.Add(p);
             }
         }
+        public override void Drow()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            base.Drow(); // вызывается метод Drow из базового класса, в данном случае Figure
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+
     }
 }
